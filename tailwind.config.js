@@ -2,10 +2,25 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        "darkModeElements": "#2B3743",
+        "darkModeBackground": "#212E37",
+        "lightModeText": "#212224",
+        "lightModeBackground": "#FAFAFA",
+        "darkModeText": "#FFFFFF",
+        "lightModeInput": "#919191F",
+        
+        
+      },
+      fontFamily: {
+        Nunito: ["Nunito", "sans-serif"],
+
+      },
+    },
   },
   plugins: [],
 }
