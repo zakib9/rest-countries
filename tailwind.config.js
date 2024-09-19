@@ -12,7 +12,7 @@ export default {
         "lightModeText": "#212224",
         "lightModeBackground": "#FAFAFA",
         "darkModeText": "#FFFFFF",
-        "lightModeInput": "#919191F",
+        "lightModeInput": "#919191",
         
         
       },
