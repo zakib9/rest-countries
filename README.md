@@ -1,7 +1,7 @@
 
 # Frontend Mentor -REST-countries
  
-This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor]. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the REST Countries API with color theme switcher challenge on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 # ScreenShots
 
