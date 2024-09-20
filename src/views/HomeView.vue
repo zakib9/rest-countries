@@ -46,31 +46,42 @@ function FilterByRegion(){
 }
    
    function onCardDetail(card){
+    
     router.push({
     name: "cardDetail",
     query: { card: JSON.stringify(card) }
     
   });
    }
+  defineProps({
+  darkMode: {
+    type: Boolean,
+    default: false,
+  },
+});
+   
 </script>
 
 <template >
- <div class=" w-full h-screen bg-lightModeBackground">
+ 
 
-  <div class=" max-w-full px-8 py-6 flex gap-6 rounded-md shadow-lg mt-36 mx-8 bg-white items-center overflow-hidden">
+  <div :class=" ['max-w-full px-8 py-2 flex gap-6 rounded-md shadow-lg mx-8  items-center overflow-hidden',{' bg-darkModeElements text-darkModeText': darkMode,
+      'bg-white': !darkMode }]">
     <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #919191;"></i>
     <input 
     type="text"
      v-model="searchQuery" 
      @input="getSearchResults" 
     placeholder="Search for a country..." 
-    class=" placeholder:text-lg">
+    class=" placeholder:text-lg bg-transparent p-4 focus:outline-none">
   </div>
-  <div @click="showFilterDropdown = !showFilterDropdown" class=" w-1/2 px-8 py-6 flex justify-between gap-2 rounded-md shadow-lg mt-16 mx-8 bg-white items-center cursor-pointer">
+  <div @click="showFilterDropdown = !showFilterDropdown" :class="[' w-1/2 px-8 py-6 flex justify-between gap-2 rounded-md shadow-lg mt-16 mx-8 items-center cursor-pointer',{' bg-darkModeElements text-darkModeText': darkMode,
+      'bg-white': !darkMode }]">
     <p class=" text-lg">{{filterByRegion}}</p>
     <i class="fa-solid fa-chevron-down"></i>
   </div>
-  <div v-if="showFilterDropdown"   class=" absolute w-1/2  rounded-md shadow-lg  mx-8 mt-1 bg-white items-start cursor-pointer">
+  <div v-if="showFilterDropdown"   :class=" ['absolute w-1/2  rounded-md shadow-lg  mx-8 mt-1 items-start cursor-pointer',{' bg-darkModeElements text-darkModeText': darkMode,
+      'bg-white': !darkMode }]">
     <ul class=" text-lg py-2" @click="FilterByRegion">
       <li class=" px-8 py-2 hover:bg-lightModeInput hover:bg-opacity-15" @click="filterByRegion = 'Filter by Region'">All</li>
       <li class=" px-8 py-2 hover:bg-lightModeInput hover:bg-opacity-15" @click="filterByRegion = 'Africa'">Africa</li>
@@ -84,14 +95,20 @@ function FilterByRegion(){
   </div>
   <div v-if="search">
     <div v-for="country in filteredList" :key="country.name" >
-      <CardView :country="country" @cardDetail="onCardDetail"/>
+      <CardView 
+      :country="country" 
+      :darkMode="darkMode" 
+      @cardDetail="onCardDetail"/>
     </div>
   </div>
   <div v-else>
     <div v-for="country in countriesData" :key="country.name" >
-      <CardView :country="country" @cardDetail="onCardDetail"/>
+      <CardView 
+      :country="country"
+      :darkMode="darkMode"
+      @cardDetail="onCardDetail"/>
     </div>
   </div>
- </div>
+
  
 </template>
