@@ -1,7 +1,8 @@
 <template>
-    <div  class=" mt-36  max-w-full max-h-full flex flex-col gap-6 m-8">
+    <div  class="  max-w-full max-h-full flex flex-col gap-6 p-8">
         <RouterLink to="/">
-            <div  class=" mb-10 p-2 px-6 flex gap-4 items-center justify-center rounded shadow max-w-min">
+            <div  :class=" ['mb-10 p-2 px-6 flex gap-4 items-center justify-center rounded shadow max-w-min',{' bg-darkModeElements text-darkModeText': darkMode,
+      'bg-white': !darkMode }]">
             <i class="fa-solid fa-arrow-left"></i>
             <p>Back</p>
         </div>
@@ -32,7 +33,8 @@
               <span class=" font-semibold text-2xl">Border Countries:</span>
               <div class="flex gap-4 flex-wrap" >
               
-                  <div class="flex gap-4 bg-white shadow-md rounded-md px-8 p-4 max-w-max" v-for="border in borders" :key="border">
+                  <div :class="['flex gap-4 shadow-md rounded-md px-8 p-4 max-w-max',{' bg-darkModeElements text-darkModeText': darkMode,
+      'bg-white': !darkMode }]" v-for="border in borders" :key="border">
                     <p>{{ border }} </p>
                   </div>
               </div>
@@ -45,6 +47,15 @@
 import { useRoute } from 'vue-router';
 import countriesData from '../data.json'
 import { ref } from 'vue';
+
+ defineProps({
+  darkMode: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+
 const route = useRoute()
  // Parse the card from the query parameter
 const card = JSON.parse(route.query.card);
