@@ -1,7 +1,7 @@
 <template>
-    <div @click="showCardDetail(country)" :class=" ['rounded-md shadow-md max-w-full max-h-fit overflow-hidden flex flex-col gap-4 m-8',{' bg-darkModeElements text-darkModeText': darkMode,
+    <div @click="showCardDetail(country)" :class=" ['rounded-md shadow-md max-w-full min-h-full overflow-hidden flex flex-col gap-4 m-8',{' bg-darkModeElements text-darkModeText': darkMode,
       'bg-white': !darkMode }]">
-        <img :src="country.flags.png" class=" min-w-full" alt="">
+        <img :src="country.flags.png" class=" min-w-full " alt="">
         <div class=" flex flex-col p-5 text-lg">
           <h4 class=" text-2xl font-bold pb-6"> {{country.name}}</h4>
           <p><span class=" font-semibold">Population:</span> {{(country.population).toLocaleString()}}</p>
