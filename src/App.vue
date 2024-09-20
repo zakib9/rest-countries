@@ -20,7 +20,7 @@ function triggerDarkMode(){
       <p class=" text-base font-semibold">Dark Mode</p>
     </div>
   </div>
-  <div :class=" ['w-full h-full pt-36 ',{' bg-darkModeBackground text-darkModeText': darkMode,
+  <div :class=" ['w-full min-h-screen pt-36 ',{' bg-darkModeBackground text-darkModeText': darkMode,
       ' bg-lightModeBackground': !darkMode }]">
     <router-view :darkMode="darkMode" ></router-view>
   </div>
