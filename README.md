@@ -36,9 +36,4 @@ This is a solution to the REST Countries API with color theme switcher challenge
 
 
 
-
-
-
-
-
 https://vue-rest-countries-challenge.netlify.app
